@@ -1,12 +1,16 @@
 {
+  "bin": {
+    "ccsh": "./bin/index.js"
+  },
+  "type": "module",
   "name": "shell",
   "version": "1.0.0",
-  "description": "## Introduction",
-  "main": "index.js",
+  "description": "CLI app replicating the functionalities of a shell",
+  "main": "./bin/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Nathan Kalala",
   "license": "ISC"
 }
