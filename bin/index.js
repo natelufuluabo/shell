@@ -8,19 +8,27 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-rl.question('ccsh> ', (command) => {
+function getUserInput() {
+    rl.question('ccsh> ', (command) => {
+      if (command.toLowerCase() === 'exit') {
+        rl.close();
+      } else {
+        executeCommand(command, getUserInput);
+      }
+    });
+  }
+  
+function executeCommand(command, callback) {
     exec(command, (error, stdout, stderr) => {
         if (error) {
-          console.error(`Error executing command: ${error.message}`);
-          return;
-        }
-      
+            console.error(`${error.message}`);
+        } 
         if (stderr) {
-          console.error(`Command stderr: ${stderr}`);
-          return;
+            console.error(`${stderr}`);
         }
-      
         console.log(`${stdout}`);
+        callback(); 
     });
-    rl.close();
-});
+}
+  
+getUserInput();
