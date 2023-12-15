@@ -20,11 +20,8 @@ function getUserInput() {
   
 function executeCommand(command, callback) {
     exec(command, (error, stdout, stderr) => {
-        if (error) {
-            console.error(`${error.message}`);
-        } 
-        if (stderr) {
-            console.error(`${stderr}`);
+        if (error || stderr) {
+            console.log(`No such file or directory`);
         }
         console.log(`${stdout}`);
         callback(); 
