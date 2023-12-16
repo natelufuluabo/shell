@@ -3,3 +3,6 @@ pwd
 cat
 ls
 ccwc
+pwd
+ls
+cat
