@@ -8,3 +8,14 @@ ls
 cat
 history
 history
+pwd
+cd
+pwd
+cd
+pwd
+cd
+pwd
+ls
+pwd
+cd
+pwd
