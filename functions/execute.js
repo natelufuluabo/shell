@@ -1,13 +1,19 @@
-import { saveHistory } from "../utils.js";
 import { exec } from 'child_process';
+import { saveHistory } from "../utils.js";
+import { show_history } from './show_histroy.js';
 
-export function executeCommand(command, callback) {
+export async function executeCommand(command, callback) {
     saveHistory(command);
-    exec(command, (error, stdout, stderr) => {
-        if (error || stderr) {
-            console.log(`No such file or directory`);
-        }
-        console.log(`${stdout}`);
-        callback(); 
-    });
+    const firstSegment = command.split(' ')[0];
+    switch (firstSegment) {
+        case 'history':
+            console.log(`${await show_history()}`);
+            break;
+        default:
+            exec(command, (error, stdout, stderr) => {
+                if (error || stderr) console.log(`No such file or directory`);
+                console.log(`${stdout}`);
+            });  
+    }
+    callback();
 }

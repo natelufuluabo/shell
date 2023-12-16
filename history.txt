@@ -6,3 +6,5 @@ ccwc
 pwd
 ls
 cat
+history
+history
