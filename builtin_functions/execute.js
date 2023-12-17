@@ -1,7 +1,7 @@
 import { exec } from 'child_process';
-import { chdir } from './chdir.js';
+import { chdir } from './ccd/chdir.js';
 import { saveHistory } from "../utils.js";
-import { show_history } from './show_histroy.js';
+import { show_history } from './history/show_histroy.js';
 
 export async function executeCommand(command, callback) {
     saveHistory(command);

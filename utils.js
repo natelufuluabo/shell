@@ -1,7 +1,7 @@
 import readline from 'readline';
 import dotenv from 'dotenv';
 import fs from 'fs';
-import { executeCommand } from './functions/execute.js';
+import { executeCommand } from './builtin_functions/execute.js';
 
 const rl = readline.createInterface({
     input: process.stdin,
