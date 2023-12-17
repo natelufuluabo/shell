@@ -1,5 +1,5 @@
 import { exec } from 'child_process';
-import path from 'path';
+import { chdir } from './chdir.js';
 import { saveHistory } from "../utils.js";
 import { show_history } from './show_histroy.js';
 
@@ -9,6 +9,10 @@ export async function executeCommand(command, callback) {
     switch (firstSegment) {
         case 'history':
             console.log(`${await show_history()}`);
+            callback();
+            break;
+        case 'ccd':
+            chdir(command);
             callback();
             break;
         default:

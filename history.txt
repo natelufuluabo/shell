@@ -19,3 +19,9 @@ ls
 pwd
 cd
 pwd
+ccd
+ccd
+ccd
+ccd
+ccd
+pwd
