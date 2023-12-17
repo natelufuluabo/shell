@@ -41,3 +41,4 @@ pwd
 ls
 pwd
 history
+ls
