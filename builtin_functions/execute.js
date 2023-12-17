@@ -1,4 +1,5 @@
 import { exec } from 'child_process';
+import { ccwc } from './ccwc/index.js';
 import { chdir } from './ccd/chdir.js';
 import { saveHistory } from "../utils.js";
 import { show_history } from './history/show_histroy.js';
@@ -13,6 +14,10 @@ export async function executeCommand(command, callback) {
             break;
         case 'ccd':
             chdir(command);
+            callback();
+            break;
+        case 'ccwc':
+            ccwc(command);
             callback();
             break;
         default:
