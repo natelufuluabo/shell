@@ -18,7 +18,7 @@ function getUserInput() {
 export function saveHistory(content) {
     dotenv.config();
     const command = content.split(' ')
-    fs.appendFile(process.env.HISTORY_FILE_PATH, `${command[0]}\n`, (err) => {
+    fs.appendFile('/Users/nathankalalalufuluabo/Desktop/mycliapps/history.txt', `${command[0]}\n`, (err) => {
         if (err) console.log('Error writing file');
     })
 }

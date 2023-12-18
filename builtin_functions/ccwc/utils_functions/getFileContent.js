@@ -16,7 +16,6 @@ export async function getFileContent(input) {
     }
   } catch (error) {
     // Handle errors, e.g., file not found
-    console.error('Error:', error.message);
-    throw error;
+    return
   }
 }

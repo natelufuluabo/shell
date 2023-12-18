@@ -7,26 +7,15 @@ import { countCharacters } from './charCount.js';
 export async function executeCommand(options, fileName) {
     const text = await getFileContent(fileName);
 
-    switch(options) {
-        case '-w':
-            console.log(countWords(text));
-            break;
-        case '-c':
-            console.log(countBytes(text));
-            break;
-        case '-l':
-            console.log(countLine(text));
-            break;
-        case '-m':
-            console.log(countCharacters(text));
-            break;
-        default:
-            console.log(
-                countLine(text), 
-                countWords(text),
-                countBytes(text),
-            );
-            break;
+    if (text === undefined) return console.log('No such file or directory')
 
-    }
+    if (options === '-w') console.log(countWords(text));
+    else if (options === '-c') console.log(countBytes(text));
+    else if (options === '-l') console.log(countLine(text));
+    else if (options === '-m') console.log(countCharacters(text));
+    else console.log(
+        countLine(text), 
+        countWords(text),
+        countBytes(text),
+    );
 }
