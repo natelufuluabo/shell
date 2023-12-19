@@ -1,6 +1,8 @@
 import readline from 'readline';
 import dotenv from 'dotenv';
 import fs from 'fs';
+import figlet from 'figlet';
+import gradient from 'gradient-string';
 import { executeCommand } from './builtin_functions/execute.js';
 
 const rl = readline.createInterface({
@@ -23,6 +25,17 @@ export function saveHistory(content) {
     })
 }
 
+function welcomeMsg() {
+    console.clear();
+    const msg = `
+    Welcome to ShellX!
+    `
+    figlet(msg, (err, data) => {
+        console.log(gradient.pastel.multiline(data));
+        getUserInput();
+    })
+}
+
 export function startShell() {
-    getUserInput();
+    welcomeMsg();
 }
